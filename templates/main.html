@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная</title>
+</head>
+<body>
+<style>
+    a:link {
+        color: black;
+        text-decoration: none
+    }
+    a:visited {
+        color: black;
+        text-decoration: none
+    }
+    a:hover {
+        color: grey;
+        text-decoration: underline;
+    }
+</style>
+<h3>Выберите слово:</h3>
+<table cellpadding="30%" align="center" border="1">
+    {% for i in range((words|length)//5): %}
+    <tr>
+        {% for word in words[5*i:5*i+5] %}
+        <td align="center"> <a href="/solve?word={{word}}" > {{word}} </a> </td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+
+
+</table>
+<h3 align="center">Или введите своё</h3>
+<div align="center">
+<form method="post" action="/enter_word">
+    <input type="text" name="word" align="center">
+    <button type="submit">Ввести</button>
+</form>
+</div>
+</body>
+</html>

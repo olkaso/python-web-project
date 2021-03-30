@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Играть</title>
+</head>
+<body>
+<style>
+    a:link {
+        color: black;
+        text-decoration: none
+    }
+    a:visited {
+        color: black;
+        text-decoration: none
+    }
+    a:hover {
+        color: grey;
+        text-decoration: underline;
+    }
+</style>
+<p align="right" style="margin-right:5%"> <a href="/"> На главную</a></p>
+<h2 align="center"> {{word}} </h2>
+<div align="center">
+    <form method="post" action="/solve/try_word">
+        <input type="text" name="word" align="center">
+        <button type="submit">Ввести</button>
+        <p style="color:#FF0000; font-size:75%">{{message}} </p>
+    </form>
+    {% for gword in words %}
+    <div> {{gword}} </div>
+    {% endfor %}
+
+    <div style="vertical-align:bottom; color:#00FF00"> Отгадано: {{words|length }} </div>
+</div>
+</body>
+</html>
